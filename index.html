@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OhShu (王・主) | 聖書のみことばと巡る 漢字間違い探し脳トレ</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="似て非なる漢字の中に隠された真理を探し出せ！『王の王、主の主』をはじめ、聖書の名句と出会う新感覚の和風モダン漢字間違い探し知育・脳トレゲーム『OhShu』。ブラウザですぐ遊べるWeb体験版も公開中！">
+  <meta name="keywords" content="OhShu, 王主, 漢字クイズ, 脳トレ, 間違い探し, 聖書, みことば, iOSアプリ, GameCenter, Sound of Love">
+  <meta name="author" content="Sound of Love Apps">
+  
+  <!-- OGP / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OhShu (王・主) | 聖書のみことばと巡る 漢字間違い探し脳トレ">
+  <meta property="og:description" content="王の王、主の主。似て非なる文字の中に真理の光を探し出せ。心洗われるみことばと出会う新感覚の漢字パズルアプリ。">
+  <meta property="og:image" content="./assets/icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OhShu (王・主) 公式サイト">
+  <meta name="twitter:description" content="心洗われる50篇の聖書のみことばと、集中力を研ぎ澄ます漢字間違い探しパズル。">
+  <meta name="twitter:image" content="./assets/icon.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="apple-touch-icon" href="./assets/icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Serif+JP:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- 背景スターダストCanvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ========================================================================
+       Header & Navigation
+       ======================================================================== -->
+  <header>
+    <nav class="navbar" id="main-navbar">
+      <a href="#" class="nav-brand" id="nav-brand-logo">
+        <img src="./assets/icon.png" alt="OhShu App Icon" class="brand-icon">
+        <div class="brand-text">
+          <span class="brand-title">OhShu</span>
+          <span class="brand-subtitle">王・主 〜KANJI QUIZ〜</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-menu-links">
+        <li><a href="#demo" class="nav-link" id="nav-link-demo">Web体験版</a></li>
+        <li><a href="#features" class="nav-link" id="nav-link-features">ゲームの特徴</a></li>
+        <li><a href="#archive" class="nav-link" id="nav-link-archive">みことばギャラリー</a></li>
+        <li><a href="#specs" class="nav-link" id="nav-link-specs">アプリ概要</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="sound-toggle" id="sound-toggle-btn" title="効果音 ON/OFF" aria-label="Toggle Sound">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </button>
+        <a href="#demo" class="nav-btn" id="nav-btn-play">
+          <span>今すぐ体験</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========================================================================
+       Hero Section
+       ======================================================================== -->
+  <main>
+    <section class="hero" id="hero">
+      <img src="./assets/hero-bg.jpg" alt="OhShu Key Visual - Light beam on ancient scripture" class="hero-bg-media">
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>✦ iOS 16+ 対応 / Game Center 統合</span>
+          </div>
+
+          <h1 class="hero-title">
+            似て非なる文字に、<br>
+            真理の光を探し出せ。
+            <span class="hero-title-highlight">OhShu</span>
+          </h1>
+
+          <p class="hero-desc">
+            「王の王、主の主」「狭き門」「愛は寛容」――。<br>
+            聖書に刻まれた50篇の深遠なみことばと、観察力を極限まで研ぎ澄ます漢字間違い探しパズルが融合。心静まる和モダンな世界へようこそ。
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#demo" class="btn-primary" id="hero-btn-demo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <span>ブラウザで今すぐ体験</span>
+            </a>
+            <a href="#specs" class="btn-secondary" id="hero-btn-details">
+              <span>アプリ詳細を見る</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">50+</span>
+              <span class="stat-label">厳選されたみことば</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">3 STAGES</span>
+              <span class="stat-label">4×4 〜 9×9 難易度</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">WORLD RANK</span>
+              <span class="stat-label">Game Center リーダーボード</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D iPhone モックアップ -->
+        <div class="hero-visual">
+          <div class="phone-mockup" id="hero-phone-mockup">
+            <div class="phone-island"></div>
+            <div class="phone-screen">
+              <div class="screen-header">
+                <p class="screen-subtitle">第 1 章</p>
+                <h2 class="screen-title" style="font-size:1.3rem;">王の王、主の主</h2>
+                <div class="screen-kanji-target">
+                  『主』を探してね
+                </div>
+              </div>
+
+              <!-- 4x4 グリッドプレビュー -->
+              <div class="screen-grid">
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell highlight-target">主</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+                <div class="screen-cell">王</div>
+              </div>
+
+              <div class="screen-scripture">
+                <strong>テモテヘの第一の手紙 6:15-16</strong>
+                もろもろの王の王、もろもろの主の主が、キリストを出現させて下さるであろう...
+              </div>
+
+              <div class="screen-footer-stats">
+                <span>Score: 1,200</span>
+                <span>Combo: x3 🔥</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         Interactive Demo Section (Web体験版)
+         ======================================================================== -->
+    <section class="demo-section" id="demo">
+      <div class="section-header">
+        <span class="section-tag">Interactive Trial</span>
+        <h2 class="section-title">ブラウザで遊べる「OhShu」Web体験版</h2>
+        <p class="section-desc">
+          アプリの爽快感を今すぐここで体験！似ている漢字のグリッドの中から、たった1つの『正解漢字』を見つけてクリックしてください。
+        </p>
+      </div>
+
+      <div class="demo-wrapper">
+        <div class="demo-top-bar">
+          <div class="demo-stage-info">
+            <span class="demo-stage-badge" id="demo-stage-badge">第 1 章</span>
+            <span class="demo-title-text" id="demo-title-text">王の王、主の主</span>
+          </div>
+
+          <div class="demo-controls">
+            <div class="demo-difficulty-selector">
+              <button class="diff-btn active" data-diff="easy" id="diff-easy-btn">Easy (4×4)</button>
+              <button class="diff-btn" data-diff="medium" id="diff-med-btn">Medium (6×6)</button>
+            </div>
+
+            <div class="demo-score-board">
+              <div class="score-box">
+                <span class="score-label">SCORE</span>
+                <span class="score-value" id="demo-score-value">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-game-area">
+          <!-- グリッド側 -->
+          <div class="grid-container">
+            <div class="demo-hint-box">
+              <span class="demo-hint-text">
+                『<span class="demo-target-char" id="demo-target-char">主</span>』を探してタップ！
+              </span>
+            </div>
+
+            <div class="demo-kanji-grid" id="demo-kanji-grid">
+              <!-- JSで動的生成 -->
+            </div>
+          </div>
+
+          <!-- みことばカード側 -->
+          <div class="scripture-display">
+            <div>
+              <div class="scripture-header">
+                <span class="scripture-citation" id="demo-scripture-citation">テモテヘの第一の手紙 6:15-16</span>
+              </div>
+              <div class="scripture-body" id="demo-scripture-body">
+                時がくれば、祝福に満ちた、ただひとりの力あるかた、もろもろの王の王、もろもろの主の主が、キリストを出現させて下さるであろう。神はただひとり不死を保ち、近づきがたい光の中に住み、人間の中でだれも見た者がなく、見ることもできないかたである。ほまれと永遠の支配とが、神にあるように、アァメン。
+              </div>
+            </div>
+
+            <div class="demo-feedback" id="demo-feedback" style="display: none;">
+              <div class="feedback-msg">正解！+100 pts</div>
+              <button class="btn-next-stage" id="btn-next-stage">次の章へ ❯</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         Features Section (ゲームの特徴)
+         ======================================================================== -->
+    <section class="features-section" id="features">
+      <div class="section-header">
+        <span class="section-tag">Core Features</span>
+        <h2 class="section-title">OhShu が提供する4つの特別な体験</h2>
+        <p class="section-desc">
+          単なるゲームにとどまらない、深い教養と静寂な集中をもたらす洗練された機能群。
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <span>👁️</span>
+          </div>
+          <h3 class="feature-title">研ぎ澄まされる観察力</h3>
+          <p class="feature-text">
+            「主」と「王」、「門」と「問」、「道」と「通」など、一見すると見分けがつかない酷似した漢字が整然と並びます。細部を見抜く極上の脳トレパズルです。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <span>📖</span>
+          </div>
+          <h3 class="feature-title">50篇の珠玉のみことば</h3>
+          <p class="feature-text">
+            正解するたびに、その漢字が織り込まれた聖書の名句と解説が静かに紐解かれます。知識としての漢字だけでなく、心に潤いをもたらす知の探求が待っています。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <span>⚡</span>
+          </div>
+          <h3 class="feature-title">3段階の難易度設計</h3>
+          <p class="feature-text">
+            ゆったり遊べる Easy (4×4) から、本格的な Medium (6×6)、そして圧倒的な盤面密度の Hard (9×9) まで。子どもから大人まで夢中で楽しめます。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <span>🏆</span>
+          </div>
+          <h3 class="feature-title">Game Center 世界ランキング</h3>
+          <p class="feature-text">
+            Apple Game Centerとシームレスに連携。ステージクリア速度と連続正解ボーナスでスコアを競い、世界の観察力ランキングの頂点を目指せます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         Scriptures Archive / Gallery (みことばギャラリー)
+         ======================================================================== -->
+    <section class="archive-section" id="archive">
+      <div class="archive-container">
+        <div class="section-header">
+          <span class="section-tag">Scripture Library</span>
+          <h2 class="section-title">心に灯る 50のみことばアーカイブ</h2>
+          <p class="section-desc">
+            アプリに収録されている50篇の聖句を自由に検索・鑑賞できます。日々の歩みのヒントや励ましとなる言葉を見つけてみてください。
+          </p>
+        </div>
+
+        <div class="archive-toolbar">
+          <div class="search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="scripture-search-input" placeholder="キーワード検索 (例: 愛, 光, 命, 門, 平和...)">
+          </div>
+
+          <button class="btn-omikuji" id="btn-omikuji">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <span>今日のみことばを引く</span>
+          </button>
+        </div>
+
+        <div class="scriptures-grid" id="scriptures-grid">
+          <!-- JSでレンダリング -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         App Specifications & Info
+         ======================================================================== -->
+    <section class="specs-section" id="specs">
+      <div class="specs-card">
+        <div class="specs-icon-area">
+          <img src="./assets/icon.png" alt="OhShu App Icon Large" class="specs-app-icon">
+        </div>
+        <div class="specs-details">
+          <span class="section-tag">Product Info</span>
+          <h2 style="font-family: var(--font-royal); font-size: 2rem; margin-bottom: 1.5rem; color: #fff;">OhShu (王・主)</h2>
+          <table class="specs-table">
+            <tbody>
+              <tr>
+                <th>ジャンル</th>
+                <td>教育 / パズル / ボードゲーム (ファミリー向け)</td>
+              </tr>
+              <tr>
+                <th>対応プラットフォーム</th>
+                <td>iOS 16.0 以降 (iPhone / iPad 対応)</td>
+              </tr>
+              <tr>
+                <th>価格</th>
+                <td>無料 (Free)</td>
+              </tr>
+              <tr>
+                <th>開発・配信元</th>
+                <td>Sound of Love Apps</td>
+              </tr>
+              <tr>
+                <th>特徴機能</th>
+                <td>Game Center スコアリーダーボード / ハプティクス / パーティクル演出</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         Call To Action Banner
+         ======================================================================== -->
+    <section class="cta-section">
+      <div class="cta-banner">
+        <h2 class="cta-title">真理の文字を見極める旅へ</h2>
+        <p class="cta-subtitle">
+          あなたの観察力と直感、そして豊かなみことばが交差する瞬間。今すぐ体験してみましょう。
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="#demo" class="btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+            Web体験版をプレイする
+          </a>
+          <a href="http://sound-of-love.com" target="_blank" rel="noopener" class="btn-secondary">
+            Sound of Love 公式サイト ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <div class="nav-brand" style="margin-bottom: 1rem;">
+          <img src="./assets/icon.png" alt="OhShu Icon" style="width: 36px; height: 36px; border-radius: 8px;">
+          <span class="brand-title" style="font-size: 1.2rem;">OhShu</span>
+        </div>
+        <p class="footer-brand-desc">
+          聖書の深いみことばと、漢字の美しさを味わう教育パズル。知性と心の調和をお届けします。
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>ナビゲーション</h4>
+        <ul>
+          <li><a href="#hero">トップ</a></li>
+          <li><a href="#demo">Web体験版</a></li>
+          <li><a href="#features">ゲームの特徴</a></li>
+          <li><a href="#archive">みことばギャラリー</a></li>
+          <li><a href="#specs">製品仕様</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>関連リンク・規約</h4>
+        <ul>
+          <li><a href="http://sound-of-love.com" target="_blank" rel="noopener">Sound of Love</a></li>
+          <li><a href="#" id="privacy-link">プライバシーポリシー</a></li>
+          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub リポジトリ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Sound of Love Apps. All rights reserved.</span>
+      <span>Designed with precision & grace for GitHub Pages.</span>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       Modal (みことば詳細 & おみくじ)
+       ======================================================================== -->
+  <div class="modal-overlay" id="scripture-modal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+      <div style="margin-bottom: 1rem;">
+        <span class="kanji-pair" id="modal-kanji-pair" style="font-size: 0.9rem;"></span>
+      </div>
+      <span class="scripture-citation" id="modal-citation" style="display: block; margin-bottom: 0.5rem;"></span>
+      <h3 id="modal-title" style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.25rem; color: #fff;"></h3>
+      <div id="modal-body" style="font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.9; color: #cbd5e1; white-space: pre-line;"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Modal (プライバシーポリシー)
+       ======================================================================== -->
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="privacy-close-btn">&times;</button>
+      <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 1rem; color: #fff;">プライバシーポリシー</h3>
+      <div style="font-size: 0.9rem; line-height: 1.8; color: #cbd5e1;">
+        <p><strong>1. 個人情報の収集について</strong><br>
+        本アプリ「OhShu」は、ユーザーの個人を特定できる情報（氏名、住所、電話番号、メールアドレス等）を一切収集・保存しません。</p>
+        <br>
+        <p><strong>2. Game Center 連携について</strong><br>
+        ハイスコアランキングの登録・閲覧のために Apple 社の Game Center 機能を利用します。これらは Apple のプライバシーポリシーに従って安全に管理されます。</p>
+        <br>
+        <p><strong>3. お問い合わせ</strong><br>
+        本ポリシーに関するお問い合わせは、Sound of Love 公式ウェブサイトよりお願いいたします。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="./app.js"></script>
+</body>
+</html>
